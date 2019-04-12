@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>vue.js</title>
     <script src="vue.js"></script>
 </head>
 <body>
     <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
 
     <div id="app">
-        <input type="text" v-on:input="changeTitle">
-        <p>{{ title }}</p>
+        <!-- <input type="text" v-on:input="changeTitle"> -->
+        <!-- <p>{{ title }}</p> -->
+        <p>{{ sayHello() }}</p>
     </div>
     <!-- <script src="scripts/index.js"></script> -->
     <script>
@@ -22,8 +23,11 @@
                 title: 'Hello World!'
             },
             methods: {
-                changeTitle: function(event){
-                    this.title = event.target.value;
+                // changeTitle: function(event){
+                //     this.title = event.target.value;
+                // }
+                sayHello: function(){
+                    return 'Hello!'
                 }
             }
         })
