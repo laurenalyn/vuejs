@@ -16,6 +16,8 @@
         <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
         <!-- {{}} can ONLY be used on text (string interpolation) - not on html elements
         we have to use v-bind to bind the data dynamically for attributes -->
+        <hr>
+        <p>{{ finishedLink }}</p>
     </div>
     <!-- <script src="scripts/index.js"></script> -->
     <script>
@@ -23,7 +25,8 @@
             el: '#app',
             data: {
                 title: 'Hello World!',
-                link: 'http://google.com'
+                link: 'http://google.com',
+                finishedLink: '<a href= "http://google.com">Google</a>'
             },
             methods: {
                 // changeTitle: function(event){
