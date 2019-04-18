@@ -12,7 +12,7 @@
 
     <div id="app">
         <!-- <input type="text" v-on:input="changeTitle"> -->
-        <!-- <p>{{ title }}</p> -->
+        <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
         <!-- {{}} can ONLY be used on text (string interpolation) - not on html elements
         we have to use v-bind to bind the data dynamically for attributes -->
@@ -30,6 +30,7 @@
                 //     this.title = event.target.value;
                 // }
                 sayHello: function(){
+                    this.title = 'Hello'; 
                     return this.title;
                 }
             }
