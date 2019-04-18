@@ -13,14 +13,17 @@
     <div id="app">
         <!-- <input type="text" v-on:input="changeTitle"> -->
         <!-- <p>{{ title }}</p> -->
-        <p>{{ sayHello() }}</p>
+        <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+        <!-- {{}} can ONLY be used on text (string interpolation) - not on html elements
+        we have to use v-bind to bind the data dynamically for attributes -->
     </div>
     <!-- <script src="scripts/index.js"></script> -->
     <script>
         new Vue({
             el: '#app',
             data: {
-                title: 'Hello World!'
+                title: 'Hello World!',
+                link: 'http://google.com'
             },
             methods: {
                 // changeTitle: function(event){
