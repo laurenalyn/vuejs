@@ -18,6 +18,8 @@
             <!-- .stop is a modifier which will STOP propigation  -->
             <span v-on:mousemove.stop="">DEAD SPOT </span>
         </p>
+        <!-- key modifier - .enter will send an alert when the ENTER key is hit -->
+        <input type="text" v-on:keyup.enter="alertMe">
     </div>
     
     <script>
@@ -36,6 +38,9 @@
                     this.x = event.clientX;
                     this.y = event.clientY;
                 },
+                alertMe: function () {
+                    alert('you hit the enter key');
+                }
             }
         });
     </script>
