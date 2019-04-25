@@ -11,56 +11,24 @@
 
 <body>
     <div id="app">
-        <!-- <button v-on:click="increase">Increase</button> -->
-        <button v-on:click="counter++">Increase</button>
-        <!-- <button v-on:click="decrease">Decrease</button> -->
-        <button v-on:click="counter--">Decrease</button>
-        <button v-on:click="secondCounter++">Increase Second</button>
-        <p>Counter: {{ counter }} | {{ secondCounter }}</p>
-        <!-- <p>Result: {{ result }}</p> -->
-        <p>Result: {{ result() }} | {{ output }}</p>
+        <!-- <button v-on:click="changeLink">Click to change link</button> -->
+        <button @click="changeLink">Clickto change link</button> 
+        <!-- @ is short hand for v-on: -->
+        <!-- <a v-bind:href="link">Link</a> -->
+        <a :href="link">Link</a>
+        <!-- : is short hand for v-bind -->
     </div>
 
     <script>
         new Vue({
-            // el: - connected to DOM
             el: '#app',
-            // data: is not reactive
-            // data: - store data to be used
             data: {
-                counter: 0,
-                // result: '',
-                secondCounter: 0
-            },
-            // computed: - dependent properties - can be used like data properties
-            computed: {
-                output: function() {
-                    console.log('computed');
-                    return this.counter > 5 ? 'Greater than 5' : 'Less than 5'
-                }
-            },
-            // watch: - execute code upon data changes
-            watch: {
-                counter: function(value) {
-                    var vm = this;
-                    setTimeout(function() {
-                        vm.counter = 0;
-                    }, 2000)
-                }
+                link: 'http://google.com'
             },
             methods: {
-                result: function() {
-                    console.log('method');
-                    return this.counter > 5 ? 'greater than 5' : 'less than 5';
+                changeLink: function() {
+                    this.link = 'http://apple.com'
                 }
-                // increase: function () {
-                //     this.counter++;
-                //     this.result = this.counter > 5 ? 'Greater than 5' : 'Less than 5'
-                // },
-                // decrease :function () {
-                //     this.counter--;
-                //     this.result = this.counter > 5 ? 'Greater than 5' : 'Less than 5'
-                // }
             }
         });
     </script>
