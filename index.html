@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,53 @@
     <title>vue.js</title>
     <script src="vue.js"></script>
 </head>
+
 <body>
     <div id="app">
-        <input type="text" v-model="name">
-        <p>{{ name }}</p>
+        <!-- <button v-on:click="increase">Increase</button> -->
+        <button v-on:click="counter++">Increase</button>
+        <!-- <button v-on:click="decrease">Decrease</button> -->
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase Second</button>
+        <p>Counter: {{ counter }} | {{ secondCounter }}</p>
+        <!-- <p>Result: {{ result }}</p> -->
+        <p>Result: {{ result() }} | {{ output }}</p>
     </div>
-    
+
     <script>
         new Vue({
+            // el: - connected to DOM
             el: '#app',
+            // data: is not reactive
+            // data: - store data to be used
             data: {
-                name: 'Lauren'
-        }
-    });
+                counter: 0,
+                // result: '',
+                secondCounter: 0
+            },
+            // computed: - dependent properties - can be used like data properties
+            computed: {
+                output: function() {
+                    console.log('computed');
+                    return this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+                }
+            },
+            methods: {
+                result: function() {
+                    console.log('method');
+                    return this.counter > 5 ? 'greater than 5' : 'less than 5';
+                }
+                // increase: function () {
+                //     this.counter++;
+                //     this.result = this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+                // },
+                // decrease :function () {
+                //     this.counter--;
+                //     this.result = this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+                // }
+            }
+        });
     </script>
 </body>
+
 </html>
