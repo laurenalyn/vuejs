@@ -21,7 +21,7 @@
        <div class="demo":style="{backgroundColor: color}"></div>
        <!-- if using classes with a - you must enclose in single quotes -- or you can use camelCase -->
        <div class="demo" :style="myStyle"></div>
-       <div class="demo"></div>
+       <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
         <hr>
         <!--using the input to change the color by binding the color property -->
         <input type="text" v-model="color">
