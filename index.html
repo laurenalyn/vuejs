@@ -12,29 +12,51 @@
 
 <body>
     <div id="app">
-       <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+       <!-- <div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
        <div class="demo" :class="{red: attachRed}"></div>
-        <!--to add multiple classes use []  -->
        <div class="demo" :class="[color, {red: attachRed}]"></div>
        <hr>
-       <input type="text" v-model="color">
+       <input type="text" v-model="color"> -->
+
+       <div class="demo":style="{backgroundColor: color}"></div>
+       <!-- if using classes with a - you must enclose in single quotes -- or you can use camelCase -->
+       <div class="demo" :style="myStyle"></div>
+       <div class="demo"></div>
+        <hr>
+        <!--using the input to change the color by binding the color property -->
+        <input type="text" v-model="color">
+        <input type="text" v-model="width">
     </div>
 
     <script>
         new Vue({
             el: '#app',
             
-            data: {
-                attachRed: false,
-                color: 'green'
-            },
+            // data: {
+            //     attachRed: false,
+            //     color: 'green'
+            // },
 
+            // computed: {
+            //     divClasses: function() {
+            //         return {
+            //             red: this.attachRed,
+            //             blue: !this.attachRed
+            //         };
+            //     }
+            // }
+
+            data: {
+                color: 'grey',
+                width: 100
+            },
             computed: {
-                divClasses: function() {
+                myStyle: function() {
                     return {
-                        red: this.attachRed,
-                        blue: !this.attachRed
-                    };
+                        backgroundColor: this.color,
+                        // have to add + 'px' to make it a pixel value
+                        width: this.width + 'px'
+                    }
                 }
             }
         });
