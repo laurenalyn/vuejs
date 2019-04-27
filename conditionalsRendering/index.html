@@ -13,6 +13,10 @@
             <!-- v-for works similarily to a for loop and allows us to loop through an array and replicate the element on which v-for sits -->
             <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
         </ul>
+        <template v-for="(ingredient, index) in ingredients">
+            <h1>{{ ingredient}}</h1>
+            <p>{{ index }}</p>
+        </template>
     </div>
     
 
