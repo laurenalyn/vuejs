@@ -10,8 +10,14 @@
 <body>
     <div id="app">
         <p v-if="show">You can see me!</p>
-        <p v-else>Now you see me!</p>
-        <p>Do you also see me?</p>
+        <p v-else>Now you see me!</p> 
+        <!-- v-else take place of the v-if it follows (just like an if/else statement) -->
+        <template v-if="show">
+            <h1>Heading</h1>
+            <p>inside a template</p>
+        </template>
+        <!-- v-show doesnt DETACH the element - it changes it to display:none -->
+        <p v-show="show">Do you also see me?</p>
         <button @click="show = !show">Switch</button>
     </div>
     
