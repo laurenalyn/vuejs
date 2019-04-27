@@ -11,8 +11,10 @@
     <div id="app">
         <ul>
             <!-- v-for works similarily to a for loop and allows us to loop through an array and replicate the element on which v-for sits -->
-            <li v-for="(ingredient, i) in ingredients">{{ ingredient }} ({{ i }})</li>
+            <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ ingredient }} ({{ i }})</li>
         </ul>
+        <!-- push method adds items to the array -->
+        <button @click="ingredients.push('spices')">Add New</button>
         <hr>
         <ul>
             <li v-for="person in persons"> {{ person.name }}</li>
