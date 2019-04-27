@@ -20,6 +20,9 @@
             </div></li>
         </ul>
         <hr>
+        <!-- looping through numbers 1-10 -->
+        <span v-for="n in 10">{{ n }}</span>
+        <hr>
         <template v-for="(ingredient, index) in ingredients">
             <h1>{{ ingredient}}</h1>
             <p>{{ index }}</p>
