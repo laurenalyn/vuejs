@@ -47,7 +47,8 @@ new Vue ({
         },
 
         giveUp: function() {
-
+            this.gameIsRunning = false;
+            
         },
 
         calculateDamage: function (min, max) {
