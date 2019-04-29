@@ -18,7 +18,7 @@ new Vue ({
         attack: function() {
             var damage = this.calculateDamage(3, 10);
             this.monsterHealth -= damage;
-            this.turns.upshift({
+            this.turns.unshift({
                 isPlayer: true,
                 text: 'Player hits Monster for ' + damage
             });
