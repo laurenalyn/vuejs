@@ -112,13 +112,14 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <button
-                            class="btn btn-primary">Submit!
+                            class="btn btn-primary"
+                            @click.prevent="submitted">Submit!
                     </button>
                 </div>
             </div>
         </form>
         <hr>
-        <div class="row">
+        <div class="row" v-if="isSubmitted">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -160,6 +161,12 @@
                 selectedPriority: 'High',
                 priorities: ['High', 'Medium', 'Low'],
                 dataSwitch: true,
+                isSubmitted: false
+            }
+        },
+        methods: {
+            submitted() {
+                this.isSubmitted = true;
             }
         },
         components: {
